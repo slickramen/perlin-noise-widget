@@ -1,0 +1,181 @@
+/* Sheet for main page style */
+@import url(./fnt/portfolio-grom/portfolio-grom.css);
+@font-face {
+	font-family: "Inter";
+	src: url("../fnt/Inter.ttf") format("truetype");
+}
+
+/* width */
+::-webkit-scrollbar-thumb {
+	background-color: gray;
+	border-radius: 1rem;
+	border: 0.1rem solid transparent;
+	background-clip: padding-box;
+}
+
+::-webkit-scrollbar {
+	width: 0.5rem;
+}
+
+* {
+	font-family: "Inter", Arial, sans-serif;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	text-transform: lowercase;
+}
+
+body,
+html {
+	height: 100vh;
+	width: 100vw;
+	overflow-x: hidden;
+}
+
+body {
+	background-color: white;
+}
+
+.page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.layout {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	flex-grow: 1;
+	max-width: 800px;
+	gap: 12px;
+
+	padding: 16px;
+}
+
+.subtitle {
+	font-size: 1rem;
+	opacity: 0.6;
+}
+
+.flex,
+.inline,
+.stack {
+	display: flex;
+}
+
+.flex.sb,
+.inline.sb,
+.stack.sb {
+	justify-content: space-between;
+}
+
+.flex.center,
+.inline.center,
+.stack.center {
+	align-items: center;
+}
+
+.inline {
+	flex-direction: row;
+}
+
+.stack {
+	flex-direction: column;
+}
+
+.button {
+	border: none;
+	outline: none;
+
+	padding: 4px 8px;
+	border-radius: 4px;
+	outline: 1px solid black;
+	outline-offset: -1px;
+	background-color: #eee;
+	display: flex;
+
+	cursor: pointer;
+
+	color: black;
+	text-decoration: none;
+}
+
+input {
+	min-width: 0;
+	width: 100%;
+}
+
+input[type="number"] {
+	padding: 4px 8px;
+	border-radius: 4px;
+	border: none;
+	outline: 1px solid black;
+	outline-offset: -1px;
+}
+
+.data-label {
+	padding: 4px 8px;
+	border-radius: 4px;
+	border: none;
+	background-color: #f5f5f5;
+	outline: 1px solid rgb(217, 217, 217);
+	outline-offset: -1px;
+}
+
+.button:hover {
+	background-color: #ddd;
+}
+
+.button.icon-button {
+	padding: 8px;
+}
+
+.button.icon-button i {
+	font-size: 20px;
+}
+
+.container {
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 16px;
+	border-radius: 8px;
+}
+
+.controls {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	justify-content: start;
+	gap: 8px;
+}
+
+.grid-cell {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 8px;
+	justify-content: flex-start;
+
+	width: 100%;
+	height: 100%;
+}
+
+canvas {
+	min-width: 0;
+	min-height: 0;
+	width: 100%;
+	height: 100%;
+}
+
+label,
+input {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	font-size: 0.75rem;
+	letter-spacing: 0.05em;
+	color: black;
+}

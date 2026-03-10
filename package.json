@@ -1,0 +1,14 @@
+{
+	"name": "perlin-noise-widget",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"build:wasm": "cd wasm-crate && wasm-pack build --target web --out-dir ../src/wasm-pkg",
+		"dev": "npm run build:wasm && vite",
+		"build": "npm run build:wasm && vite build"
+	},
+	"devDependencies": {
+		"vite": "^7.3.1"
+	}
+}

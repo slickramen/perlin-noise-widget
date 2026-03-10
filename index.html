@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="./src/resources/style.css" />
+		<link rel="stylesheet" href="./src/resources/colours.css" />
+
+		<title>perlin-noise-widget</title>
+	</head>
+	<body>
+		<div class="page">
+			<div class="layout">
+				<div class="inline sb center">
+					<h1>perlin-noise-widget</h1>
+					<a
+						class="button icon-button"
+						target="_blank"
+						href="https://github.com/slickramen/perlin-noise-widget"
+					>
+						<i class="icon-github use-line-height"></i>
+					</a>
+				</div>
+				<span class="subtitle">
+					A simple perlin noise generator, using Rust compiled to
+					WebAssembly and the noise crate.
+				</span>
+
+				<h3>controls</h3>
+				<div class="container controls">
+					<div class="grid-cell">
+						<label
+							>i.
+							<button class="button" id="randomise">
+								randomise
+							</button>
+						</label>
+
+						<label
+							>ii.
+							<button class="button" id="reset">reset</button>
+						</label>
+					</div>
+
+					<div class="grid-cell">
+						<label
+							>seed
+							<input
+								type="number"
+								id="seed"
+								value="30505"
+								min="0"
+								max="99999"
+							/>
+						</label>
+					</div>
+					<div class="grid-cell">
+						<label
+							>scale
+							<span class="data-label" id="scale-val">100</span>
+							<input
+								type="range"
+								id="scale"
+								min="10"
+								max="500"
+								value="100"
+							/>
+						</label>
+					</div>
+					<div class="grid-cell">
+						<label
+							>offset x speed
+							<span class="data-label" id="offsetX-val">0</span>
+							<input
+								type="range"
+								id="offsetX"
+								min="-10"
+								max="10"
+								value="0"
+							/>
+						</label>
+					</div>
+					<div class="grid-cell">
+						<label
+							>offset y speed
+							<span class="data-label" id="offsetY-val">0</span>
+							<input
+								type="range"
+								id="offsetY"
+								min="-10"
+								max="10"
+								value="0"
+							/>
+						</label>
+					</div>
+					<div class="grid-cell">
+						<label
+							>z slice
+							<span class="data-label" id="z-val">0.00</span>
+							<input
+								type="range"
+								id="z"
+								min="0"
+								max="100"
+								value="0"
+							/>
+						</label>
+					</div>
+				</div>
+
+				<h3>output</h3>
+				<div class="container">
+					<canvas id="canvas"></canvas>
+				</div>
+			</div>
+		</div>
+
+		<script type="module" src="/src/index.ts"></script>
+	</body>
+</html>

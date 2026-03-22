@@ -1,15 +1,23 @@
 import init, { NoiseGenerator } from "../public/wasm/wasm_crate.js";
 
 let generator: NoiseGenerator | null = null;
+let generatorType: number = 0;
 
 export async function initNoise(seed: number = 42): Promise<void> {
 	await init();
 	generator = new NoiseGenerator(seed);
 }
 
+export function updateNoiseType(type: number) {
+	if (!generator) throw new Error("Call initNoise() first!");
+
+	generator.set_type(type);
+	generatorType = type;
+}
+
 export function renderNoise(
 	canvas: HTMLCanvasElement,
-	scale: number = 100,
+	scale: number = 50,
 	offsetX: number = 0,
 	offsetY: number = 0,
 	z: number = 0,
@@ -21,10 +29,18 @@ export function renderNoise(
 
 	const { width, height } = canvas;
 
+	let multScale = scale;
+
+	// multiply scale a bit to zoom in
+	if (generatorType === 3) {
+		// 3 = RidgedMulti
+		multScale *= 5;
+	}
+
 	const noise = generator.generate_map(
 		width,
 		height,
-		scale,
+		multScale,
 		offsetX,
 		offsetY,
 		z,
